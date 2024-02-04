@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="stylesheet" href="style (1).css" />
+  <style>
+    .about-details {
+      display: none;
+    }
+
+    .about:hover .about-details {
+      display: block;
+    }
+
+    .service-option > div {
+      display: none;
+    }
+
+    .service-option:hover > div {
+      display: block;
+    }
+
+    .service-option > span {
+      display: none;
+    }
+    .service-option {
+      color: white;
+    }
+    .service-option:hover > span {
+      display: inline;
+    }
+    .contact-option {
+      color: white;
+    }
+    .contact-details {
+      color: black;
+      display: none;
+    }
+    
+    .contact-option:hover .contact-details {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="hero">
+      <p align="justify">
+      <img src="Screenshot 2024-02-04 094137.png" alt="Icon" style="height: 40px; width: 140px; margin-right: 40px;">
+        <h1>The Kriticks - Transcending towards Education 4.0</h1>
+        <h3><i>Generative AI Service Palette</i></h3>
+      </p>
+    </div>
+
+    <div class="main">
+      <div class="link-container">
+        <div class="about">
+          <a >About</a>
+          <div class="about-details">
+            <h2>Welcome to The Kriticks</h2>
+            <p align="justify">
+              The Kriticks is a leading provider of innovative educational solutions, focused on transcending traditional learning methods through technology. Our suite of tools includes a translator, chatbot, image generator, and image classifier, designed to enhance learning experiences.
+            </p>
+          </div>
+        </div>
+        <div class="service-option">
+          Service Provided
+          <div>
+            <div>
+            <a>1. Encoder-Decoder Translator</a>
+          </div>
+            <div><a >2. NLP Virtual Assistant</a></div>
+            <div><a >3. Text to Image Generator AI</a></div>
+            <a>4. AI Image Classifier, Text Generator and Translator</a>
+            <div>
+            <a>5. Speech Recognition and Translation</a></div>
+            <div class="pdf"><p  onclick="openPdf()">6. AR Service Demo PDF</p>
+            <div></div>
+            <img src="https://firebasestorage.googleapis.com/v0/b/minorproject-b38ff.appspot.com/o/Purple%20Doodle%20Mind%20Map%20A4%20Document.png?alt=media&token=dc1d4af7-5290-484a-9c27-0aa18346ee6c" alt="" />
+            <svg onclick="closePdf()" class="close" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 11 11">
+              <path
+                d="M2.2 1.19l3.3 3.3L8.8 1.2a.67.67 0 0 1 .5-.2a.75.75 0 0 1 .7.7a.66.66 0 0 1-.2.48L6.49 5.5L9.8 8.82c.13.126.202.3.2.48a.75.75 0 0 1-.7.7a.67.67 0 0 1-.5-.2L5.5 6.51L2.21 9.8a.67.67 0 0 1-.5.2a.75.75 0 0 1-.71-.71a.66.66 0 0 1 .2-.48L4.51 5.5L1.19 2.18A.66.66 0 0 1 1 1.7a.75.75 0 0 1 .7-.7a.67.67 0 0 1 .5.19z"
+                fill="currentColor"
+            />
+            </svg>
+        </div>
+            </div>
+        </div>
+        <div class="service-option">
+          AR Service 
+          <div>
+          <p align="justify">
+            Contact us today to receive your personalised augmented reality book, with embedded 3D models and links to study topics for better comprehension.
+            </p>
+            <!-- Content for Image Generator -->
+          </div>
+        </div>
+        <div class="contact-option">
+          Contact Us
+          <div class="contact-details">
+            <p>Email: thekriticks@gmail.com</p>
+            <p>Phone: 9850246610</p>
+            <p>Address: IEM, College More, Kolkata-700059</p>
+          </div>
+        </div>
+        
+      </div>
+      <div class="main-container">
+        <p align="justify">
+          <b>The Kriticks</b> - pinnacle of education 4.0, seamlessly integrating seven innovative services to enhance learning experiences like never before. With our comprehensive suite of tools, including a translator, chatbot, text-to-image generator, and image classifier with translation capabilities, we offer unparalleled support to students and educators alike. Whether it's breaking down language barriers, providing instant assistance through our intelligent chatbot, or facilitating visual learning through text-to-image conversion and image classification, our platform empowers users to access, understand, and engage with educational content in ways that were previously unimaginable. By amalgamating cutting-edge technologies with a user-centric approach, we ensure that learning becomes not just efficient but also enjoyable. In a landscape where adaptability and accessibility are paramount, our application stands out as the ultimate solution, revolutionizing the educational journey for learners worldwide.
+        </p>
+        <div class="product-container">
+          <div class="product-text">
+            <h3>1. Encoder-Decoder Translator</h3>
+            <p align="justify">
+              This service employs state-of-the-art natural language processing algorithms to swiftly and accurately translate text across multiple languages. With this tool, users can effortlessly transcend language barriers, accessing educational content in their preferred language and fostering a more inclusive learning environment.
+            </p>
+            <p align="justify">
+              <b>Model used -</b> <i>m2m100-1.2b :</i> Multilingual encoder-decoder (seq-to-seq) model trained for Many-to-Many multilingual translation
+              languages: english, chinese, french, spanish, arabic, russian, german, japanese, portuguese, hindi!
+            </p>
+            <span><i>To get this service</i> <p><a href="https://krittika-ai-translator.krittika-das-cse-2021.workers.dev/"><div class="yellow-box">Click Here</div></a></span>
+            </p>
+          </div>
+          <div class="img-container">
+            <img src="download.jpg" alt="" width="450" height="250" />
+          </div>
+        </div>
+        <div class="product-container">
+          <div class="img-container">
+            <img src="Augmented-Reality.jpeg" width="450" height="250" />
+          </div>
+          <div class="product-text">
+            <h3>2. NLP Virtual Assistant</h3>
+            <p align="justify">
+              Experience personalized and dynamic learning with our innovative educational NLP Virtual Bot! Our service generates insightful microblogs tailored to your prompts, fostering a unique and engaging way to enhance your educational journey. Empower your learning experience with our cutting-edge technology, delivering concise and relevant content at your fingertips.
+              </p>
+              <p align="justify">
+              <b>Model used -</b> <i>meta/llama-2-7b-chat-int8 :</i> Quantized (int8) generative text model with 7 billion parameters from Meta3
+            </p>
+              <span><i>To get this service</i> <p><a href="https://krittika-chatbot.krittika-das-cse-2021.workers.dev/"><div class="yellow-box">Click Here</div></a></span>
+           </div>
+         </div>
+    <div class="product-container">
+          <div class="product-text">
+            <h3>3. Text to Image Generator AI</h3>
+            <p align="justify">
+              Unleash your creativity with our cutting-edge Text-to-Image Generator AI! Transform textual ideas into vibrant visual compositions effortlessly, bridging the gap between imagination and reality. Elevate your content creation experience, generating stunning images tailored to your words with unprecedented ease and precision.
+            </p>
+            <p align="justify">
+              <b>Model used -</b> <i>stabilityai/stable-diffusion-xl-base: </i>Diffusion-based text-to-image generative model by Stability AI. Generates and modify images based on text prompts.
+            </p>
+            <span><i>To get this service</i> <p><a href="https://krittika-image-generator.krittika-das-cse-2021.workers.dev/"><div class="yellow-box">Click Here</div></a></span>
+            </p>
+          </div>
+          <div class="img-container">
+            <img src="Best-AI-Image-Generators-in-2023.jpg" alt="" width="450" height="250" />
+          </div>
+        </div>
+        <div class="product-container">
+          <div class="img-container">
+            <img src="machine_learning_doodle_p0_750x410.png" width="450" height="250" />
+          </div>
+          <div class="product-text">
+            <h3>4. AI Image Classifier, Text Generator and Translator</h3>
+            <p align="justify">
+              Embark on a seamless visual journey with our Image Classifier, effortlessly categorizing and understanding images for enhanced comprehension. Immerse yourself in the realm of creativity as our Text Generator crafts engaging narratives from your prompts, bringing ideas to life. Break language barriers with our Translator, fostering global communication by swiftly converting text across diverse languages.
+              </p>
+              <p align="justify">
+              <b>Model used -</b> <i>microsoft/resnet-50 :</i> 50 layers deep image classification CNN trained on more than 1M images from ImageNet
+            </p>
+            <p align="justify">
+              <b>Model used -</b> <i>meta/llama-2-7b-chat-int8 :</i> Quantized (int8) generative text model with 7 billion parameters from Meta3
+            </p>
+            <p align="justify">
+              <b>Model used -</b> <i>m2m100-1.2b :</i> Multilingual encoder-decoder (seq-to-seq) model trained for Many-to-Many multilingual translation
+              languages: english, chinese, french, spanish, arabic, russian, german, japanese, portuguese, hindi!
+            </p>
+              <span><i>To get this service</i> <p><a href="https://image-text.krittika-das-cse-2021.workers.dev/"><div class="yellow-box">Click Here</div></a></span>
+           </div>
+         </div>
+          <div class="product-container">
+          <div class="product-text">
+            <h3>5. Speech Recognition and Translation</h3>
+            <p align="justify">
+              Experience seamless audio translation services tailored to your language preferences. Our advanced technology ensures accurate and efficient translation of audio files into your chosen language. Unlock a world of communication possibilities with our intuitive and reliable translation service.
+            </p>
+            <p align="justify">
+              <b>Model used -</b> <i>openai/whisper: </i>Automatic speech recognition (ASR) system trained on 680,000 hours of multilingual and multitask supervised data.
+            </p>
+            <p align="justify">
+              <b>Model used -</b> <i>m2m100-1.2b :</i> Multilingual encoder-decoder (seq-to-seq) model trained for Many-to-Many multilingual translation
+              languages: english, chinese, french, spanish, arabic, russian, german, japanese, portuguese, hindi!
+            </p>
+            <span><i>To get this service</i> <p><a href="https://krittika-chatbot.pratickgupta56.workers.dev/"><div class="yellow-box">Click Here</div></a></span>
+            </p>
+          </div>
+          <div class="img-container">
+            <img src="rendered.jpg" alt="" width="450" height="250" />
+          </div>
+        </div>
+        <div class="product-container">
+          <div class="img-container">
+            <img src="EEAVR_VIsion.00_01_24_00.Still007.jpg" width="450" height="250" />
+          </div>
+          <div class="product-text">
+            <h3>6. AR Service </h3>
+            <p align="justify">
+              Immerse yourself in a groundbreaking AR service where traditional books come to life! Our innovative solution transforms ordinary texts into interactive Augmented Reality experiences, complete with clickable links to relevant study materials. Navigate seamlessly through a multidimensional learning environment, unlocking a new era of engaging and enriched educational content.
+              </p>
+              <span><i>To get this service</i> <p><a href="https://drive.google.com/file/d/1LflgYj-NoG4gebUeo-c9ysP3jgEZLYfr/view?usp=sharing"><div class="yellow-box">Download App today!</div></a></span>
+           </div>
+         </div>
+
+        </div>
+      </div>
+    </main>
+    <script>
+      function openPdf() {
+        document.querySelector(".pdf>img").style.display = "block";
+        document.querySelector(".pdf>div").style.display = "block";
+        document.querySelector(".pdf>.close").style.display = "block";
+      }
+      function closePdf() {
+        document.querySelector(".pdf>img").style.display = "none";
+        document.querySelector(".pdf>div").style.display = "none";
+        document.querySelector(".pdf>.close").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
