@@ -27,4 +27,25 @@ Model used - stabilityai/stable-diffusion-xl-base: Diffusion-based text-to-image
 To use: https://krittika-image-generator.krittika-das-cse-2021.workers.dev/
 ![text to image](https://github.com/hoomanbing/Diversion2024-TheKriticks/assets/91937177/0a509f9c-b76f-48eb-83dd-903aed0f8f69)
 
-### Note: Provide access to your Cloudflare Workers AI API before running the files
+4. AI Image Classifier, Text Generator and Translator
+Embark on a seamless visual journey with our Image Classifier, effortlessly categorizing and understanding images for enhanced comprehension. Immerse yourself in the realm of creativity as our Text Generator crafts engaging narratives from your prompts, bringing ideas to life. Break language barriers with our Translator, fostering global communication by swiftly converting text across diverse languages.
+
+Model used - microsoft/resnet-50 : 50 layers deep image classification CNN trained on more than 1M images from ImageNet
+
+Model used - meta/llama-2-7b-chat-int8 : Quantized (int8) generative text model with 7 billion parameters from Meta3
+
+Model used - m2m100-1.2b : Multilingual encoder-decoder (seq-to-seq) model trained for Many-to-Many multilingual translation languages: english, chinese, french, spanish, arabic, russian, german, japanese, portuguese, hindi!
+To use: https://image-text.krittika-das-cse-2021.workers.dev/
+![image-classifier](https://github.com/hoomanbing/Diversion2024-TheKriticks/assets/91937177/b23db4c9-20e1-4f68-b525-30d4c4bdcdd8)
+
+5. Speech Recognition and Translation
+Experience seamless audio translation services tailored to your language preferences. Our advanced technology ensures accurate and efficient translation of audio files into your chosen language. Unlock a world of communication possibilities with our intuitive and reliable translation service.
+
+Model used - openai/whisper: Automatic speech recognition (ASR) system trained on 680,000 hours of multilingual and multitask supervised data.
+
+Model used - m2m100-1.2b : Multilingual encoder-decoder (seq-to-seq) model trained for Many-to-Many multilingual translation languages: english, chinese, french, spanish, arabic, russian, german, japanese, portuguese, hindi!
+
+To use: https://krittika-chatbot.pratickgupta56.workers.dev/
+![speech recog](https://github.com/hoomanbing/Diversion2024-TheKriticks/assets/91937177/98347df6-e464-47d9-961f-f67bb45fe913)
+
+### Note: Provide access to your Cloudflare Workers AI API before running the files.
