@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>The Kriticks - AI Image Classification, Text GEn and Translation</title>
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+			@import url('https://unpkg.com/normalize.css');
+			html {
+				font-family: 'Roboto Mono', monospace;
+				line-height: 1.5;
+				& * {
+					font-size: 16px;
+				}
+			}
+
+			body {
+				&::before {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					background-image: url('https://firebasestorage.googleapis.com/v0/b/minorproject-b38ff.appspot.com/o/CSS%20BG.png?alt=media&token=f0572730-e540-4d5c-ba9e-3949ecde7e64');
+					background-size: cover;
+					background-position: center;
+					z-index: -1;
+					opacity: 0.3;
+				}
+			}
+
+			div#content {
+				align-items: center;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+
+			div#header {
+				width: 100%;
+				align-items: center;
+				gap: 20px;
+				display: flex;
+				justify-content: space-between;
+				background-color: #db9edb;
+				padding: 0.75rem 0;
+				border-radius: 0 0 10px 10px;
+
+				& h1 {
+					padding-left: 3rem;
+				}
+
+				& h2 {
+					padding-right: 3rem;
+				}
+
+				& p {
+					padding-right: 3rem;
+				}
+			}
+
+			div#response {
+				width: 80%;
+				font-weight: 700;
+				font-size: 20px;
+				background-color: transparent;
+				margin: 3rem 0 0;
+				padding: 2rem 3rem 0;
+				border-radius: 15px 15px 0 0;
+			}
+			div#ex-h {
+				height: 200px;
+				background-color: #db9edb;
+				
+			}
+			div#resp {
+				width: 80%;
+				background-color: transparent;
+				margin: 0 0 2rem;
+				padding: 0 3rem 2rem;
+				border-radius: 0 0 15px 15px;
+			}
+			div#translate {
+				display: none;
+				width: 80%;
+				font-weight: 700;
+				font-size: 20px;
+				background-color: #ebe1eb;
+				padding: 2rem 3rem 0;
+				border-radius: 15px 15px 0 0;
+			}
+			div#trans-resp {
+				width: 80%;
+				background-color: transparent;
+				margin: 0 0 2rem;
+				padding: 0 3rem 2rem;
+				border-radius: 0 0 15px 15px;
+			}
+
+			form#query-form {
+				bottom: 25px;
+				position: fixed;
+				display: flex;
+				justify-content: space-between;
+				margin: 0 5rem;
+				width: 80%;
+				padding: 0.75rem;
+				border-radius: 10px;
+				border: 1px solid #525252;
+				background-color: #db9edb;
+			}
+
+			form#query-form input {
+				width: 90%;
+				background-color: #db9edb;
+				outline: none;
+				border: none;
+			}
+
+			form#query-form button {
+				padding: 0.5rem;
+				margin-right: 1rem;
+				background-color: #f2d8f1;
+				border: 1px solid #382a38;
+				border-radius: 5px;
+				outline: none;
+				display: flex;
+				align-items: center;
+				cursor: pointer;
+
+				& svg {
+					font-size: 20px;
+					color: #382a38;
+				}
+				&:hover {
+					background-color: #e8b3e6;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="content">
+			<div id="header">
+				<h1>The Kriticks</h1>
+				<h1>Your AI Image Classifier, Text Generator and Translator</h1>
+				<p><a href="/"></a></p>
+			</div>
+			
+			<div id="response"></div>
+			<div id="resp"></div>
+			<div id="translate">Translated Text:</div>
+			<div id="trans-resp"></div>
+
+			<form id="query-form">
+				<input autofocus name="query" placeholder="Ask the AI anything" type="text" />
+				<button id="submit-btn" type="submit">Insert Image Link</button>
+				<label for="dropdown">Choose Language: </label>
+
+				<select id="targetLanguage" name="targetLang">
+					<option value="english">English</option>
+					<option value="chinese">Chinese</option>
+					<option value="french">French</option>
+					<option value="spanish">Spanish</option>
+					<option value="arabic">Arabic</option>
+					<option value="russian">Russian</option>
+					<option value="german">German</option>
+					<option value="japanese">Japanese</option>
+					<option value="portuguese">Portuguese</option>
+					<option value="hindi">Hindi</option>
+				</select>
+			</form>
+		</div>
+		<div id="ex-h"></div>
+
+		<script>
+			let loading = false;
+			const submitForm = async (event) => {
+				event.preventDefault();
+				const response = await fetch('/', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						query: event.target.query.value,
+					}),
+				});
+
+				window.ans = await response.text();
+				console.log(JSON.parse(ans)[0].label);
+				document.querySelector('div#response').style.backgroundColor = '#ebe1eb';
+				document.querySelector('div#response').innerHTML = JSON.parse(ans)[0].label;
+
+				//Speech request
+				const firstAnswer = JSON.parse(ans)[0].label;
+				console.log(ans);
+
+				const resp = await fetch('/chat', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						query: firstAnswer,
+					}),
+				});
+
+				window.speech = await resp.text();
+				document.querySelector('div#resp').style.backgroundColor = '#ebe1eb';
+				document.querySelector('div#resp').innerHTML = speech;
+				document.getElementById('submit-btn').innerHTML = 'Translate';
+
+				event.target.query.value = '';
+			};
+
+			const translateForm = async (event) => {
+				event.preventDefault();
+				const speechText = speech;
+				console.log(speech);
+				const resp = await fetch('/translate', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						text: speech,
+						targetLang: targetLanguage.value,
+					}),
+				});
+				const answer = await resp.json();
+				console.log(answer.translated_text);
+				document.querySelector('div#translate').style.display = 'block';
+				document.querySelector('div#trans-resp').style.backgroundColor = '#ebe1eb';
+				document.querySelector('div#trans-resp').innerHTML = answer.translated_text;
+				event.target.query.value = '';
+			};
+
+			document.querySelector('form#query-form').addEventListener('submit', submitForm);
+			document.querySelector('form#query-form').addEventListener('submit', translateForm);
+		</script>
+	</body>
+</html>
