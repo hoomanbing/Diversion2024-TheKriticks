@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Krittika's AI assistant (Beta Testing - Cloudflare)</title>
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+			@import url('https://unpkg.com/normalize.css');
+			html {
+				font-family: 'Roboto Mono', monospace;
+				line-height: 1.5;
+				& * {
+					font-size: 16px;
+				}
+			}
+
+			body {
+				&::before {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					background-image: url('https://firebasestorage.googleapis.com/v0/b/minorproject-b38ff.appspot.com/o/CSS%20BG.png?alt=media&token=f0572730-e540-4d5c-ba9e-3949ecde7e64');
+					background-size: cover;
+					background-position: center;
+					z-index: -1;
+					opacity: 0.3;
+				}
+			}
+
+			div#content {
+				align-items: center;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+
+			div#header {
+				width: 100%;
+				align-items: center;
+				gap: 20px;
+				display: flex;
+				justify-content: space-between;
+				background-color: #db9edb;
+				padding: 0.75rem 0;
+				border-radius: 0 0 10px 10px;
+
+				& h1 {
+					padding-left: 3rem;
+				}
+
+				& p {
+					padding-right: 3rem;
+				}
+			}
+
+			div#response {
+				position: fixed;
+				top: 33%;
+				width: 50%;
+				background-color: transparent;
+				padding: 2rem 3rem;
+				border-radius: 15px;
+			}
+
+			form#query-form {
+				bottom: 25px;
+				position: fixed;
+				display: flex;
+				justify-content: space-between;
+				margin: 0 5rem;
+				width: 80%;
+				padding: 0.75rem;
+				border-radius: 10px;
+				border: 1px solid #525252;
+				background-color: #db9edb;
+			}
+
+			form#query-form input {
+				width: 90%;
+				background-color: #db9edb;
+				outline: none;
+				border: none;
+			}
+
+			form#query-form button {
+				padding: 0.5rem;
+				background-color: #f2d8f1;
+				border: 1px solid #382a38;
+				border-radius: 5px;
+				outline: none;
+				display: flex;
+				align-items: center;
+				cursor: pointer;
+
+				& svg {
+					font-size: 20px;
+					color: #382a38;
+				}
+				&:hover {
+					background-color: #e8b3e6;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="content">
+			<div id="header">
+				<h1>Krittika's AI assistant (Beta Testing - Cloudflare)</h1>
+				<p><a href="/b">(Blocking)</a></p>
+			</div>
+
+			<div id="response"></div>
+
+			<form id="query-form">
+				<input autofocus name="query" placeholder="Ask the AI anything" type="text" / >
+				<button type="submit">
+					<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+						<path
+							fill="currentColor"
+							d="M4.4 19.425q-.5.2-.95-.088T3 18.5V14l8-2l-8-2V5.5q0-.55.45-.837t.95-.088l15.4 6.5q.625.275.625.925t-.625.925z"
+						/>
+					</svg>
+				</button>
+			</form>
+		</div>
+
+		<script>
+			const submitForm = async (formEvent) => {
+				formEvent.preventDefault();
+
+				const url = `/stream?query=${formEvent.target.query.value}`;
+				const source = new EventSource(url);
+				let count = 0;
+				source.onmessage = (event) => {
+					if (count === 5) {
+						source.close();
+						formEvent.target.query.value = '';
+						return;
+					}
+					if (event.data === `{"response":"."}` || event.data === `{"response":"!"}` || event.data === `{"response":"?"}`) {
+						count++;
+					}
+					if (event.data === '[DONE]') {
+						source.close();
+						formEvent.target.query.value = '';
+						return;
+					}
+					const data = JSON.parse(event.data);
+					document.querySelector('div#response').style.backgroundColor = '#ebe1eb';
+					document.querySelector('div#response').innerHTML += data.response;
+				};
+			};
+
+			document.querySelector('form#query-form').addEventListener('submit', submitForm);
+		</script>
+	</body>
+</html>
