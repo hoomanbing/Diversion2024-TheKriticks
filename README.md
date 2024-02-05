@@ -48,4 +48,9 @@ Model used - m2m100-1.2b : Multilingual encoder-decoder (seq-to-seq) model train
 To use: https://krittika-chatbot.pratickgupta56.workers.dev/
 ![speech recog](https://github.com/hoomanbing/Diversion2024-TheKriticks/assets/91937177/98347df6-e464-47d9-961f-f67bb45fe913)
 
+6. AR Service
+Immerse yourself in a groundbreaking AR service where traditional books come to life! Our innovative solution transforms ordinary texts into interactive Augmented Reality experiences, complete with clickable links to relevant study materials. Navigate seamlessly through a multidimensional learning environment, unlocking a new era of engaging and enriched educational content.
+
+Download the AR app here: https://drive.google.com/file/d/1LflgYj-NoG4gebUeo-c9ysP3jgEZLYfr/view 
+
 ### Note: Provide access to your Cloudflare Workers AI API before running the files.
