@@ -27,4 +27,4 @@ Model used - stabilityai/stable-diffusion-xl-base: Diffusion-based text-to-image
 To use: https://krittika-image-generator.krittika-das-cse-2021.workers.dev/
 ![text to image](https://github.com/hoomanbing/Diversion2024-TheKriticks/assets/91937177/0a509f9c-b76f-48eb-83dd-903aed0f8f69)
 
-### Note:
+### Note: Provide access to your Cloudflare Workers AI API before running the files
